@@ -575,6 +575,16 @@ const loginPage = `
       border-color: #667eea;
       box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
     }
+    html.dark .login-container {
+      background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+    }
+    html.dark .login-box {
+      background-color: rgba(17, 24, 39, 0.95);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+    html.dark .login-box .text-gray-800 { color: #f3f4f6; }
+    html.dark .login-box .text-gray-600,
+    html.dark .login-box .text-gray-700 { color: #cbd5e1; }
   </style>
 </head>
 <body class="login-container flex items-center justify-center">

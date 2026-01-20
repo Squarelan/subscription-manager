@@ -418,12 +418,12 @@ const lunarBiz = {
 const themeResources = `
 <style>
   /* === 全局暗黑模式核心变量与覆盖 === */
-  :root {
-    --dark-bg-primary: #111827;   /* 深灰/黑背景 */
-    --dark-bg-secondary: #1f2937; /* 卡片/容器背景 */
-    --dark-border: #374151;       /* 边框颜色 */
-    --dark-text-main: #f9fafb;    /* 主要文字 */
-    --dark-text-muted: #9ca3af;   /* 次要文字 */
+  html.dark {
+    --dark-bg-primary: #111827;
+    --dark-bg-secondary: #1f2937;
+    --dark-border: #374151;
+    --dark-text-main: #f9fafb;
+    --dark-text-muted: #9ca3af;
   }
   html.dark body { background-color: var(--dark-bg-primary); color: var(--dark-text-muted); }
   html.dark .bg-white { background-color: var(--dark-bg-secondary) !important; color: var(--dark-text-main); }
@@ -470,6 +470,35 @@ const themeResources = `
   html.dark #mobile-menu-btn { color: #e5e7eb; }
   html.dark #mobile-menu-btn:hover { background-color: #374151; }
   html.dark .loading-skeleton { background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%); }
+  /* 登录页暗黑模式覆盖 */
+  html.dark body.login-container { background: linear-gradient(135deg, #0b1220 0%, #111827 100%) !important; }
+  html.dark .login-box { background-color: rgba(31, 41, 55, 0.92) !important; color: var(--dark-text-main) !important; box-shadow: 0 10px 25px rgba(0,0,0,0.55) !important; }
+  /* 订阅列表 hover / active 暗黑适配 */
+  html.dark .bg-indigo-50 { background-color: rgba(99,102,241,0.12) !important; }
+  html.dark .bg-indigo-100 { background-color: rgba(99,102,241,0.18) !important; }
+  html.dark .hover\:bg-indigo-50:hover { background-color: rgba(99,102,241,0.12) !important; }
+  html.dark .active\:bg-indigo-100:active { background-color: rgba(99,102,241,0.18) !important; }
+  html.dark .hover\:bg-red-50:hover { background-color: rgba(239,68,68,0.10) !important; }
+  html.dark .active\:bg-red-100:active { background-color: rgba(239,68,68,0.16) !important; }
+  /* =========================
+   订阅列表白框线条（border / divide / ring / outline）暗黑适配
+   ========================= */
+  html.dark .border-white { border-color: var(--dark-border) !important; }
+
+  html.dark .ring-white { --tw-ring-color: var(--dark-border) !important; }
+  html.dark .ring-gray-200 { --tw-ring-color: var(--dark-border) !important; }
+  html.dark .ring-gray-300 { --tw-ring-color: var(--dark-border) !important; }
+
+  html.dark .outline-white { outline-color: var(--dark-border) !important; }
+  html.dark .outline-gray-200 { outline-color: var(--dark-border) !important; }
+  html.dark .outline-gray-300 { outline-color: var(--dark-border) !important; }
+
+  /* 表格/列表项边框统一变暗（避免一条条白线） */
+  html.dark .responsive-table td,
+  html.dark .responsive-table th,
+  html.dark .responsive-table tr {
+    border-color: var(--dark-border) !important;
+  }
   
   @media (max-width: 767px) {   /* === 移动端表格样式(高对比度版) === */
     html.dark .responsive-table td:before {  /* 强制提亮移动端表格的 Label */
@@ -492,6 +521,16 @@ const themeResources = `
     html.dark .td-content-wrapper {
         color: #f3f4f6;
     }
+  }
+  @media (min-width: 768px) {
+    .responsive-table tbody td { background: #fff; } /* 亮色 */
+    html.dark .responsive-table tbody td { background: var(--dark-bg-secondary) !important; } /* 暗色 */
+
+    .responsive-table tbody tr td:first-child { border-top-left-radius: 0.75rem; border-bottom-left-radius: 0.75rem; }
+    .responsive-table tbody tr td:last-child { border-top-right-radius: 0.75rem; border-bottom-right-radius: 0.75rem; }
+
+    .responsive-table tbody tr { box-shadow: 0 2px 8px rgba(0,0,0,0.06); } /* 亮色 */
+    html.dark .responsive-table tbody tr { box-shadow: 0 2px 8px rgba(0,0,0,0.35) !important; } /* 暗色 */
   }
 </style>
 <script>
@@ -1096,10 +1135,10 @@ const adminPage = `
       </div>
     </div>
     
-    <div class="table-container bg-white rounded-lg overflow-hidden">
+    <div class="table-container bg-transparent md:bg-white rounded-none md:rounded-lg overflow-visible">
       <div class="overflow-x-auto">
-        <table class="w-full divide-y divide-gray-200 responsive-table">
-          <thead class="bg-gray-50">
+        <table class="w-full responsive-table md:border-separate md:border-spacing-y-3">
+          <thead class="bg-transparent md:bg-gray-50">
             <tr>
               <th scope="col" class="px-4 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider" style="width: 23%;">
                 名称
@@ -1124,12 +1163,10 @@ const adminPage = `
               </th>
             </tr>
           </thead>
-        <tbody id="subscriptionsBody" class="bg-white divide-y divide-gray-200">
-        </tbody>
+          <tbody id="subscriptionsBody" class="bg-transparent md:bg-white"></tbody>
         </table>
       </div>
     </div>
-  </div>
 
   <div id="subscriptionModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-gray-600 bg-opacity-50">
     <div class="relative w-auto max-w-2xl mx-4 md:mx-auto my-12 bg-white rounded-lg shadow-xl">

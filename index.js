@@ -513,9 +513,9 @@ const themeResources = `
     .responsive-table tbody tr { box-shadow: 0 2px 8px rgba(0,0,0,0.06); } /* 亮色 */
     html.dark .responsive-table tbody tr { box-shadow: 0 2px 8px rgba(0,0,0,0.35) !important; } /* 暗色 */
   }
-  html.dark .md\:bg-white { background-color: var(--dark-bg-secondary) !important; }
-  html.dark .md\:bg-gray-50 { background-color: var(--dark-bg-primary) !important; }
-  html.dark .md\:bg-gray-100 { background-color: var(--dark-border) !important; }
+  @media (min-width: 768px) {
+    html.dark .table-shell { background-color: var(--dark-bg-primary) !important; }
+  }
 </style>
 <script>
   (function() {

@@ -480,25 +480,6 @@ const themeResources = `
   html.dark .active\:bg-indigo-100:active { background-color: rgba(99,102,241,0.18) !important; }
   html.dark .hover\:bg-red-50:hover { background-color: rgba(239,68,68,0.10) !important; }
   html.dark .active\:bg-red-100:active { background-color: rgba(239,68,68,0.16) !important; }
-  /* =========================
-   订阅列表白框线条（border / divide / ring / outline）暗黑适配
-   ========================= */
-  html.dark .border-white { border-color: var(--dark-border) !important; }
-
-  html.dark .ring-white { --tw-ring-color: var(--dark-border) !important; }
-  html.dark .ring-gray-200 { --tw-ring-color: var(--dark-border) !important; }
-  html.dark .ring-gray-300 { --tw-ring-color: var(--dark-border) !important; }
-
-  html.dark .outline-white { outline-color: var(--dark-border) !important; }
-  html.dark .outline-gray-200 { outline-color: var(--dark-border) !important; }
-  html.dark .outline-gray-300 { outline-color: var(--dark-border) !important; }
-
-  /* 表格/列表项边框统一变暗（避免一条条白线） */
-  html.dark .responsive-table td,
-  html.dark .responsive-table th,
-  html.dark .responsive-table tr {
-    border-color: var(--dark-border) !important;
-  }
   
   @media (max-width: 767px) {   /* === 移动端表格样式(高对比度版) === */
     html.dark .responsive-table td:before {  /* 强制提亮移动端表格的 Label */
@@ -532,6 +513,9 @@ const themeResources = `
     .responsive-table tbody tr { box-shadow: 0 2px 8px rgba(0,0,0,0.06); } /* 亮色 */
     html.dark .responsive-table tbody tr { box-shadow: 0 2px 8px rgba(0,0,0,0.35) !important; } /* 暗色 */
   }
+  html.dark .md\:bg-white { background-color: var(--dark-bg-secondary) !important; }
+  html.dark .md\:bg-gray-50 { background-color: var(--dark-bg-primary) !important; }
+  html.dark .md\:bg-gray-100 { background-color: var(--dark-border) !important; }
 </style>
 <script>
   (function() {

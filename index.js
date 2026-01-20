@@ -942,7 +942,7 @@ const adminPage = `
     /* 表格布局优化 */
     .table-container {
       width: 100%;
-      overflow: visible;
+      overflow: hidden;
     }
 
     .table-container table {
@@ -968,7 +968,7 @@ const adminPage = `
     .td-content-wrapper > * { text-align: left; } /* Align content left within the wrapper */
 
     @media (max-width: 767px) {
-      .table-container { overflow-x: initial; } /* Override previous setting */
+      .table-container { overflow: hidden; }
       .responsive-table thead { display: none; }
       .responsive-table tbody, .responsive-table tr, .responsive-table td { display: block; width: 100%; }
       .responsive-table tr { margin-bottom: 1.5rem; border: 1px solid #ddd; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); overflow: hidden; }
@@ -991,9 +991,7 @@ const adminPage = `
       }
     }
     @media (min-width: 768px) {
-      .table-container {
-        overflow: visible;
-      }
+      .table-container { overflow: hidden; }
       /* .td-content-wrapper is aligned left by default */
     }
 

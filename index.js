@@ -450,8 +450,16 @@ const themeResources = `
     background-color: #4b5563 !important;
   }
   html.dark nav { background-color: var(--dark-bg-secondary) !important; border-bottom: 1px solid var(--dark-border); }
-  html.dark thead { background-color: #374151 !important; }
-  html.dark thead th { color: #e5e7eb !important; background-color: #374151 !important; }
+  html.dark thead {
+    background-color: #111827 !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+  html.dark thead th {
+    color: #f9fafb !important;
+    background-color: #111827 !important;
+    border-bottom: 1px solid #4b5563 !important;
+    letter-spacing: 0.08em;
+  }
   html.dark tbody tr:hover { background-color: #374151 !important; }
   html.dark tbody tr.bg-gray-100 { background-color: #374151 !important; }
   /* 弹窗与日期选择器 */

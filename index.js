@@ -576,7 +576,7 @@ const loginPage = `
       box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.25);
     }
     html.dark .login-container {
-      background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+      background: linear-gradient(135deg, #3b4cc4 0%, #4a2b6b 100%);
     }
     html.dark .login-box {
       background-color: rgba(17, 24, 39, 0.95);
